@@ -5,6 +5,9 @@ import {
     PageHome
 } from "./components";
 
+import './assets/css/main.css';
+import './assets/css/responsive.css';
+
 const App = () => {
     return (
         <>
