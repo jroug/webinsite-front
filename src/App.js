@@ -1,10 +1,18 @@
 import React from 'react';
-import PageHome from "./components";
+import { 
+    _Header, 
+    _Footer,
+    PageHome
+} from "./components";
 
 const App = () => {
     return (
-        <PageHome />
+        <>
+            <_Header />
+            <PageHome />
+            <_Footer />
+        </>
     );
-};
+}; 
 
 export default App;
