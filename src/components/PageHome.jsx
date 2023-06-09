@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { SectionOurServices, SectionWhyUs } from "./";
+
 const PageHome = () => {
     return (
-        <div>
-            asdasd
-        </div>
+       <>
+        <SectionOurServices />
+        <SectionWhyUs />
+       </>
     );
 }
 export default PageHome;

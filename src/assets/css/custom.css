@@ -1,0 +1,22 @@
+:root{
+    --darkgreyColor: #1f2732;
+}
+.page-wrapper {
+    min-height: 1040px;
+}
+.main-header{ 
+    background-color: var(--darkgreyColor);
+}
+.logo{
+    max-width:235px;
+}
+.banner-section,
+.banner-section-two{
+    background-size: cover;
+    background-color: var(--darkgreyColor);
+    background-blend-mode: hard-light;
+}
+
+.services-section-two{
+    margin-top: 50px;
+}
