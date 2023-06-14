@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import logo from '../assets/images/logo-wis.png';
 
 
@@ -11,7 +12,7 @@ const _Header = () => {
                     <div className="clearfix">
 
                         <div className="pull-left logo-box">
-                            <div className="logo"><a href="index.html"><img src={logo} alt="" title="" /></a></div>
+                            <div className="logo"><Link to="/"><img src={logo} alt="" title="" /></Link></div>
                         </div>
 
                         <div className="nav-outer clearfix">
@@ -28,11 +29,21 @@ const _Header = () => {
 
                                 <div className="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                     <ul className="navigation clearfix">
-                                        <li className="current"><a href="#">Αρχική</a></li>
-                                        <li className=""><a href="#">Η Ομάδα μας</a></li>
-                                        <li className=""><a href="#">Υπηρεσίες</a></li>
-                                        <li className=""><a href="#">Ιστοσελίδες</a></li>
-                                        <li className=""><a href="#">Επικοινωνία</a></li>
+                                        <li className="current"><Link to="/">Αρχική</Link></li>
+                                        <li className=""><Link to="/about">Η Ομάδα μας</Link></li>
+                                        <li class="dropdown">
+                                            <Link to="/services">Υπηρεσίες</Link>
+                                            <ul>
+                                                <li><Link to="/service">Υπηρεσία</Link></li>
+                                            </ul>
+                                        </li>
+                                        <li className="dropdown">
+                                            <Link to="/portfolio">Ιστοσελίδες</Link>
+                                            <ul>
+                                                <li><Link to="/project">Ιστοσελίδα</Link></li>
+                                            </ul>
+                                        </li>
+                                        <li className=""><Link to="/contact">Επικοινωνία</Link></li>
                                     </ul>
                                 </div>
 
@@ -69,13 +80,23 @@ const _Header = () => {
                             </button>
 
                             <div className="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
-                                <ul className="navigation clearfix">
-                                    <li className="current"><a href="#">Αρχική</a></li>
-                                    <li className=""><a href="#">Η Ομάδα μας</a></li>
-                                    <li className=""><a href="#">Υπηρεσίες</a></li>
-                                    <li className=""><a href="#">Ιστοσελίδες</a></li>
-                                    <li className=""><a href="#">Επικοινωνία</a></li>
-                                </ul>
+                            <ul className="navigation clearfix">
+                                <li className="current"><Link to="/">Αρχική</Link></li>
+                                <li className=""><Link to="/about">Η Ομάδα μας</Link></li>
+                                <li class="dropdown">
+                                    <Link to="/services">Υπηρεσίες</Link>
+                                    <ul>
+                                        <li><Link to="/service-inner">Υπηρεσία</Link></li>
+                                    </ul>
+                                </li>
+                                <li className="dropdown">
+                                    <Link to="/portfolio">Ιστοσελίδες</Link>
+                                    <ul>
+                                        <li><Link to="/portfolio-inner">Ιστοσελίδα</Link></li>
+                                    </ul>
+                                </li>
+                                <li className=""><Link to="/contact">Επικοινωνία</Link></li>
+                            </ul>
                             </div>
                         </nav>
                         {/* <!-- Main Menu End--> */}

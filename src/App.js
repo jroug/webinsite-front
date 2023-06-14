@@ -1,9 +1,11 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { 
     _Header,
-    _Banner, 
+    _BannerHome, 
     _Footer,
-    PageHome
+    PageHome,
+    PageAbout
 } from "./components";
 
 import './assets/css/bootstrap.css';
@@ -21,12 +23,16 @@ import './assets/css/custom.css';
 
 const App = () => {
     return (
-        <>
+        <BrowserRouter>
             <_Header />
-            <_Banner />
-            <PageHome />
+            <Routes >
+                <Route>
+                    <Route exact path="/" element={<PageHome />} />
+                    <Route key={"1"} path="/about" element={<PageAbout />}   />
+                </Route>
+            </Routes>
             <_Footer />
-        </>
+        </BrowserRouter>
     );
 }; 
 

@@ -16,9 +16,7 @@ const _Banner = () => {
                     </div>
                     <div className="image-column col-lg-6 col-md-12 col-sm-12">
                         <div className="inner-column">
-                            <figure 
- 
-                            >
+                            <figure >
                                 <img src={img2} alt="" />
                             </figure>
                         </div>
