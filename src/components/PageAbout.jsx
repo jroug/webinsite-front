@@ -2,10 +2,11 @@ import React from 'react';
 
 import { _BannerTop, SectionWhyUs } from "./";
 
-const PageAbout = () => {
+const PageAbout = (props) => {
+    
     return (
         <>
-            <_BannerTop />
+            <_BannerTop title={props.title} />
             <SectionWhyUs />
         </>
     );

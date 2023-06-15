@@ -1,10 +1,13 @@
 import React from 'react';
 
-const PageServices = () => {
+import { _BannerTop, SectionOurServices } from "./";
+
+const PageServices = (props) => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <_BannerTop title={props.title} /> 
+            <SectionOurServices />
+        </>
     );
 };
 

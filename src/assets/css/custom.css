@@ -1,11 +1,33 @@
 :root{
-    --darkgreyColor: #1f2732;
+    --blueDarkColor: #1f2732;
+    --blueLightColor: #0090ff;
+    --secondBlue: #1f2732;
+
+
+    /* --colorPurple1: #d858f5;
+    --colorPurple2: #c647fe;
+    --colorPurple3: #a461e8; 
+    --colorPurple4: #ff00f6;
+    */
+
+    --colorPurple1: #0091ffd7;
+    --colorPurple2: #34a5fc9f;
+    --colorPurple3: #7fc8ff38;
+    --colorPurple4: #0090ff;
+/*    
+    --colorBlueButton: #0800B6;
+    --colorPurpleButton:#8b00d9; */
+
+    --colorBlueButton: #7fc8ff38;
+    --colorBlueButton2: #22334b;
+    --colorPurpleButton:#0090ff;
+
 }
 .page-wrapper {
     min-height: 1040px;
 }
 .main-header{ 
-    background-color: var(--darkgreyColor);
+    background-color: var(--blueDarkColor);
 }
 .logo{
     max-width:235px;
@@ -13,7 +35,7 @@
 .banner-section,
 .banner-section-two{
     background-size: cover;
-    background-color: var(--darkgreyColor);
+    background-color: var(--blueDarkColor);
     background-blend-mode: hard-light;
 }
 
