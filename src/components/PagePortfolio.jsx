@@ -18,7 +18,13 @@ const PagePortfolio = (props) => {
         }
     }, []);
 
- 
+    const handleFilterClassChange = (event) => {
+        const filterBtns = document.querySelectorAll('.filter-btns li');
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    }
 
     return (
         <>
@@ -31,12 +37,12 @@ const PagePortfolio = (props) => {
                         { /* <!--Filter--> */ }
                         <div className="filters clearfix">
                             <ul className="filter-tabs filter-btns text-center clearfix">
-                                <li className="active filter" data-role="button" data-filter="all">All</li>
-                                <li className="filter" data-role="button" data-filter=".work">Work</li>
-                                <li className="filter" data-role="button" data-filter=".website">Website</li>
-                                <li className="filter" data-role="button" data-filter=".photograph">Photography</li>
-                                <li className="filter" data-role="button" data-filter=".brand">Branding</li>
-                                <li className="filter" data-role="button" data-filter=".mobile">Mobile</li>
+                                <li className="active filter" data-role="button" data-filter="all" onClick={handleFilterClassChange} >All</li>
+                                <li className="filter" data-role="button" data-filter=".work" onClick={handleFilterClassChange} >Work</li>
+                                <li className="filter" data-role="button" data-filter=".website" onClick={handleFilterClassChange} >Website</li>
+                                <li className="filter" data-role="button" data-filter=".photograph" onClick={handleFilterClassChange} >Photography</li>
+                                <li className="filter" data-role="button" data-filter=".brand" onClick={handleFilterClassChange} >Branding</li>
+                                <li className="filter" data-role="button" data-filter=".mobile" onClick={handleFilterClassChange} >Mobile</li>
                             </ul>
                         </div>
                         <div id="filter-list" className="filter-list row clearfix" >
