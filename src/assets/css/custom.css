@@ -23,6 +23,9 @@
     --colorPurpleButton:#0090ff;
 
 }
+.page-inner-top-section{
+    background-size:cover;
+}
 .page-wrapper {
     min-height: 1040px;
 }
@@ -41,4 +44,7 @@
 
 .services-section-two{
     margin-top: 50px;
+}
+.gallery-item-two.mix{
+    display:block;
 }

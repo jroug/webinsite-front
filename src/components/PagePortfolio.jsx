@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import mixitup from 'mixitup';
 
 import imgg from '../assets/images/gallery/8.jpg';
 
@@ -7,6 +9,17 @@ import { _BannerTop, SectionSubscribeToNL } from "./";
 
 
 const PagePortfolio = (props) => {
+
+    useEffect(() => {
+        const mixer = mixitup('.filter-list');
+        window.mixer = mixer;
+        return () => {
+            window.mixer.destroy();
+        }
+    }, []);
+
+ 
+
     return (
         <>
             <_BannerTop title={props.title} /> 
@@ -15,10 +28,8 @@ const PagePortfolio = (props) => {
                 <div className="auto-container">
                     { /* <!--MixitUp Galery--> */ }
                     <div className="mixitup-gallery">
-
                         { /* <!--Filter--> */ }
                         <div className="filters clearfix">
-
                             <ul className="filter-tabs filter-btns text-center clearfix">
                                 <li className="active filter" data-role="button" data-filter="all">All</li>
                                 <li className="filter" data-role="button" data-filter=".work">Work</li>
@@ -27,13 +38,10 @@ const PagePortfolio = (props) => {
                                 <li className="filter" data-role="button" data-filter=".brand">Branding</li>
                                 <li className="filter" data-role="button" data-filter=".mobile">Mobile</li>
                             </ul>
-
                         </div>
-
-                        <div className="filter-list row clearfix">
-
+                        <div id="filter-list" className="filter-list row clearfix" >
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix photograph mobile col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix photograph mobile col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -50,14 +58,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Content Strategy</a></h3>
+                                        <h3><a href="portfolio-single.html">Content Strategy photograph mobile</a></h3>
                                         <div className="category">DIGITAL MARKETING</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix work mobile col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix work mobile col-lg-4 col-md-6 col-sm-12" data-ref="item">
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -74,14 +82,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Social Engagement</a></h3>
+                                        <h3><a href="portfolio-single.html">Social Engagement work mobile</a></h3>
                                         <div className="category">SUSTAINABILITY</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix photograph mobile col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix photograph mobile col-lg-4 col-md-6 col-sm-12" data-ref="item">
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -98,14 +106,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Content Strategy</a></h3>
+                                        <h3><a href="portfolio-single.html">Content Strategy photograph mobile</a></h3>
                                         <div className="category">DIGITAL MARKETING</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix work website col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix work website col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -122,14 +130,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Plan Management</a></h3>
+                                        <h3><a href="portfolio-single.html">Plan Management work website</a></h3>
                                         <div className="category">PLANNING</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix photograph mobile col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix photograph mobile col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -146,14 +154,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Technical SEO</a></h3>
+                                        <h3><a href="portfolio-single.html">Technical SEO photograph mobile</a></h3>
                                         <div className="category">SEO</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix work brand website col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix work brand website col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -170,14 +178,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Digital Analysis</a></h3>
+                                        <h3><a href="portfolio-single.html">Digital Analysis work brand website</a></h3>
                                         <div className="category">STRATEGY</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix photograph website mobile col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix photograph website mobile col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -201,7 +209,7 @@ const PagePortfolio = (props) => {
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix photograph brand mobile col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix photograph brand mobile col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -218,14 +226,14 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Content Strategy</a></h3>
+                                        <h3><a href="portfolio-single.html">Content Strategy photograph brand mobile</a></h3>
                                         <div className="category">DIGITAL MARKETING</div>
                                     </div>
                                 </div>
                             </div>
 
                             { /* <!--Gallery Item--> */ }
-                            <div className="gallery-item-two mix work brand col-lg-4 col-md-6 col-sm-12">
+                            <div className="gallery-item-two mix work brand col-lg-4 col-md-6 col-sm-12" data-ref="item" >
                                 <div className="inner-box">
                                     <figure className="image-box">
                                         <img src={imgg} alt="" />
@@ -242,7 +250,7 @@ const PagePortfolio = (props) => {
                                     { /* <!-- Lower Box --> */ }
                                     <div className="lower-box">
                                         <a className="arrow-link" href="portfolio-single.html"><span className="icon fa fa-arrow-right"></span></a>
-                                        <h3><a href="portfolio-single.html">Social Engagement</a></h3>
+                                        <h3><a href="portfolio-single.html">Social Engagement work brand</a></h3>
                                         <div className="category">DIGITAL MARKETING</div>
                                     </div>
                                 </div>
