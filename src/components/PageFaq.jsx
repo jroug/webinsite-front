@@ -3,6 +3,22 @@ import React from 'react';
 import { _BannerTop } from "./";
 
 const PageFaq = (props) => {
+
+    const handleAccBtn = (el) => {
+        let that = el.currentTarget;
+        if(!that.classList.contains('active')){
+            document.querySelector("#accordion-box").querySelectorAll('.acc-btn').forEach((el2) => {
+                el2.classList.remove('active');
+                el2.nextElementSibling.classList.remove('current');
+            });
+            that.classList.add('active');
+            that.nextElementSibling.classList.add('current');
+        }else{
+            that.classList.remove('active');
+            that.nextElementSibling.classList.remove('current');
+        }
+    }
+
     return (
         <>
             <_BannerTop title={props.title} />
@@ -29,11 +45,11 @@ const PageFaq = (props) => {
                             <div className="inner-column">
 
                                 {/* <!--Accordian Box--> */}
-                                <ul className="accordion-box">
+                                <ul id="accordion-box" className="accordion-box">
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How to analyze marketing strategies?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How to analyze marketing strategies?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">
@@ -45,7 +61,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn active"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>What are latest updates and how to get it?</div>
+                                        <div className="acc-btn active" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>What are latest updates and how to get it?</div>
                                         <div className="acc-content current">
                                             <div className="content">
                                                 <div className="text">
@@ -57,7 +73,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How can I customize projects to add members?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How can I customize projects to add members?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">
@@ -69,7 +85,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>Why you respond so much late?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>Why you respond so much late?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">
@@ -81,7 +97,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How can I customize projects to add members?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How can I customize projects to add members?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">
@@ -93,7 +109,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How to analyze marketing strategies?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How to analyze marketing strategies?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">
@@ -105,7 +121,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>What are latest updates and how to get it?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>What are latest updates and how to get it?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">
@@ -117,7 +133,7 @@ const PageFaq = (props) => {
 
                                     {/* <!--Block--> */}
                                     <li className="accordion block">
-                                        <div className="acc-btn"><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>Why you respond so much late?</div>
+                                        <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>Why you respond so much late?</div>
                                         <div className="acc-content">
                                             <div className="content">
                                                 <div className="text">

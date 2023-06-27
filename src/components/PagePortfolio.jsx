@@ -19,6 +19,7 @@ const PagePortfolio = (props) => {
     }, []);
 
     const handleFilterClassChange = (event) => {
+        console.log(event.target);
         const filterBtns = document.querySelectorAll('.filter-btns li');
         filterBtns.forEach(btn => {
             btn.classList.remove('active');

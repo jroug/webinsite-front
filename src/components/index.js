@@ -11,6 +11,7 @@ import PageServices from "./PageServices";
 import PagePortfolio from "./PagePortfolio";
 import PageContact from "./PageContact";
 import PageFaq from "./PageFaq";
+import PageTestimonials from "./PageTestimonials";
 
 import TemplatePortfolioInner from "./TemplatePortfolioInner";
 import TemplateServiceInner from "./TemplateServiceInner";
@@ -18,6 +19,8 @@ import TemplateServiceInner from "./TemplateServiceInner";
 import SectionOurServices from "./SectionOurServices";
 import SectionWhyUs from "./SectionWhyUs";
 import SectionSubscribeToNL from "./SectionSubscribeToNL";
+import SectionAboutUs from "./SectionAboutUs";
+import SectionTestimonials from "./SectionTestimonials";
 
 
 export { 
@@ -34,11 +37,14 @@ export {
     PagePortfolio,
     PageContact,
     PageFaq,
+    PageTestimonials,
 
     TemplatePortfolioInner,
     TemplateServiceInner,
 
     SectionOurServices,
     SectionWhyUs,
-    SectionSubscribeToNL
+    SectionSubscribeToNL,
+    SectionAboutUs,
+    SectionTestimonials
 }

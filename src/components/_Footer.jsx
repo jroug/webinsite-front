@@ -2,7 +2,8 @@ import React from 'react';
 
 import logo from '../assets/images/logo-wis.png';
 import bg4 from '../assets/images/background/4.jpg';
-
+import thumb from '../assets/images/gallery/footer-gallery-thumb-1.jpg';
+ 
 const _Footer = () => {
     return (
         <footer className="main-footer margin-top" style={{ "backgroundColor" : "var(--blueDarkColor)", "marginTop":"100px"}} >
@@ -67,17 +68,17 @@ const _Footer = () => {
                                         <div className="widget-content">
                                             <div className="images-outer clearfix">
                                                 {/* <!--Image Box--> */}
-                                                <figure className="image-box"><a href="images/gallery/1.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="images/gallery/footer-gallery-thumb-1.jpg" alt="" /></a></figure>
+                                                <figure className="image-box"><a href="images/gallery/1.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src={thumb} alt="" /></a></figure>
                                                 {/* <!--Image Box--> */}
-                                                <figure className="image-box"><a href="images/gallery/2.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="images/gallery/footer-gallery-thumb-2.jpg" alt="" /></a></figure>
+                                                <figure className="image-box"><a href="images/gallery/2.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src={thumb} alt="" /></a></figure>
                                                 {/* <!--Image Box--> */}
-                                                <figure className="image-box"><a href="images/gallery/3.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="images/gallery/footer-gallery-thumb-3.jpg" alt="" /></a></figure>
+                                                <figure className="image-box"><a href="images/gallery/3.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src={thumb} alt="" /></a></figure>
                                                 {/* <!--Image Box--> */}
-                                                <figure className="image-box"><a href="images/gallery/4.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="images/gallery/footer-gallery-thumb-4.jpg" alt="" /></a></figure>
+                                                <figure className="image-box"><a href="images/gallery/4.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src={thumb} alt="" /></a></figure>
                                                 {/* <!--Image Box--> */}
-                                                <figure className="image-box"><a href="images/gallery/1.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="images/gallery/footer-gallery-thumb-5.jpg" alt="" /></a></figure>
+                                                <figure className="image-box"><a href="images/gallery/1.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src={thumb} alt="" /></a></figure>
                                                 {/* <!--Image Box--> */}
-                                                <figure className="image-box"><a href="images/gallery/2.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src="images/gallery/footer-gallery-thumb-6.jpg" alt="" /></a></figure>
+                                                <figure className="image-box"><a href="images/gallery/2.jpg" className="lightbox-image" data-fancybox="footer-gallery" title="Image Title Here" data-fancybox-group="footer-gallery"><img src={thumb} alt="" /></a></figure>
                                             </div>
                                         </div>
                                     </div>

@@ -26,7 +26,12 @@ const _Header = () => {
                                 <div className="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                     <ul className="navigation clearfix">
                                         <li className="current"><Link to="/">Αρχική</Link></li>
-                                        <li className=""><Link to="/about">Η Ομάδα μας</Link></li>
+                                        <li className="dropdown">
+                                            <Link to="/about">Η Ομάδα μας</Link>
+                                            <ul>
+                                                <li><Link to="/testimonials">Testimonials</Link></li>
+                                            </ul>
+                                        </li>
                                         <li className="dropdown">
                                             <Link to="/services">Υπηρεσίες</Link>
                                             <ul>

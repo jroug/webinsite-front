@@ -11,7 +11,8 @@ import {
     PageContact,
     TemplatePortfolioInner,
     TemplateServiceInner,
-    PageFaq
+    PageFaq,
+    PageTestimonials
 } from "./components";
 
 import './assets/css/bootstrap.css';
@@ -35,10 +36,11 @@ const App = () => {
                 <Route>
                     <Route exact path="/" element={<PageHome />} title={""} />
                     <Route key={"1"} path="/about" element={<PageAbout title={"Η Όμαδα μας"} />} />
+                        <Route key={"1a"} path="/testimonials" element={<PageTestimonials title={"Testimonials"} />} />
                     <Route key={"2"} path="/services" element={<PageServices title={"Υπηρεσίες"}  />} />
+                        <Route key={"2a"} path="/service-inner" element={<TemplateServiceInner title={"Υπηρεσία"} />}   />
                     <Route key={"3"} path="/portfolio" element={<PagePortfolio title={"Ιστοσελίδες"} />}   />
-                    <Route key={"4"} path="/portfolio-inner" element={<TemplatePortfolioInner title={"Ιστοσελίδα"} />}   />
-                    <Route key={"5"} path="/service-inner" element={<TemplateServiceInner title={"Υπηρεσία"} />}   />
+                        <Route key={"3a"} path="/portfolio-inner" element={<TemplatePortfolioInner title={"Ιστοσελίδα"} />}   />
                     <Route key={"6"} path="/faq" element={<PageFaq title={"FAQ"} />}   />
                     <Route key={"7"} path="/contact" element={<PageContact title={"Επικοινωνία"} />}   />
                 </Route>
