@@ -15,12 +15,14 @@ import PageTestimonials from "./PageTestimonials";
 
 import TemplatePortfolioInner from "./TemplatePortfolioInner";
 import TemplateServiceInner from "./TemplateServiceInner";
+import TemplateBlogInner from "./TemplateBlogInner";
 
 import SectionOurServices from "./SectionOurServices";
 import SectionWhyUs from "./SectionWhyUs";
 import SectionSubscribeToNL from "./SectionSubscribeToNL";
 import SectionAboutUs from "./SectionAboutUs";
 import SectionTestimonials from "./SectionTestimonials";
+import PageBlog from "./PageBlog";
 
 
 export { 
@@ -38,9 +40,12 @@ export {
     PageContact,
     PageFaq,
     PageTestimonials,
+    PageBlog,
+    
 
     TemplatePortfolioInner,
     TemplateServiceInner,
+    TemplateBlogInner,
 
     SectionOurServices,
     SectionWhyUs,

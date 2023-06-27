@@ -44,6 +44,12 @@ const _Header = () => {
                                                 <li><Link to="/portfolio-inner">Ιστοσελίδα</Link></li>
                                             </ul>
                                         </li>
+                                        <li className="dropdown">
+                                            <Link to="/blog">Blog</Link>
+                                            <ul>
+                                                <li><Link to="/blog-inner">Blog Post</Link></li>
+                                            </ul>
+                                        </li>
                                         <li className=""><Link to="/faq">FAQ</Link></li>
                                         <li className=""><Link to="/contact">Επικοινωνία</Link></li>
                                     </ul>
