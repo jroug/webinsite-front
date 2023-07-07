@@ -5,7 +5,28 @@ import i1 from '../assets/images/icons/icon-1.png';
 import i2 from '../assets/images/icons/icon-2.png';
 import i4 from '../assets/images/icons/icon-4.png';
 
+import { useQuery, gql } from '@apollo/client';
+
+import GraphQLQueries from "./queries/GraphQLQueries";
+import { logVar } from "./utils/Utils";
+
 const SectionOurServices = () => {
+
+    const SERVICES_CONTENT = gql`query SERVICES_CONTENT
+    {
+      ${GraphQLQueries.queries.sectionOurServices}
+    }`;
+
+    const { data, loading, error } = useQuery(SERVICES_CONTENT);
+
+
+    if (loading) { logVar('loading From SectionOurServices'); return }
+    if (error) { logVar('error From SectionOurServices'); return }
+    if (!data) { logVar('!data From SectionOurServices'); return }
+
+    const sectionOurServicesData = data.sectionOurServices.sectionOurServicesFields;
+ 
+
     return (
         <section className="services-section-two">
             <div className="image-layer" style={{"backgroundImage":"url(" + p4 + ")"}}></div>
@@ -21,9 +42,9 @@ const SectionOurServices = () => {
             <div className="auto-container">
                 {/* <!-- Sec Title --> */}
                 <div className="sec-title">
-                    <div className="title">Our Services</div>
+                    <div className="title">{sectionOurServicesData.smallTitleTop}</div>
                     <div className="separator"><span></span></div>
-                    <h2>We Are Providing <br /> Digital Services</h2>
+                    <h2>{sectionOurServicesData.mainTitle}</h2>
                 </div>
                 <div className="inner-container">
                     <div className="row clearfix">
@@ -35,10 +56,10 @@ const SectionOurServices = () => {
                                 <div className="shape-two"></div>
                                 <div className="shape-three"></div>
                                 <div className="icon-box">
-                                    <span className="icon flaticon-web-design-1"></span>
+                                    <span className={"icon " + sectionOurServicesData.box1.boxIconClass}></span>
                                 </div>
-                                <h3><a href="services.html">Web Develpment</a></h3>
-                                <div className="text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</div>
+                                <h3><a href="services.html">{sectionOurServicesData.box1.boxTitle}</a></h3>
+                                <div className="text">{sectionOurServicesData.box1.boxText}</div>
                             </div>
                         </div>
 

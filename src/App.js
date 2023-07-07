@@ -30,10 +30,20 @@ import './assets/css/main.css';
 import './assets/css/responsive.css';
 import './assets/css/custom.css';
 
+import GraphQLQueries from "./components/queries/GraphQLQueries";
+import ToolEditPage from "./components/utils/ToolEditPage";
+
 const App = () => {
     return (
         <BrowserRouter>
             <_Header />
+            {
+                (process.env.NODE_ENV == 'development') 
+                ?
+                <ToolEditPage />
+                :
+                <></>
+            }
             <Routes >
                 <Route>
                     <Route exact path="/" element={<PageHome />} title={""} />

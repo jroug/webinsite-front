@@ -1,26 +1,36 @@
 import React from 'react';
-import Home_Hero from '../assets/images/01_Home_Hero.jpg';
-import img2 from '../assets/images/background/2.png';
+import { logVar } from "./utils/Utils";
+import { Link } from 'react-router-dom';
 
-const _Banner = () => {
+
+const _Banner = (props) => {
+
+    const bannerData = props.homeHeaderData;
+
     return (
-        <section className="banner-section-two" id="home-banner" style={{"backgroundImage":"url("+Home_Hero+")"}} >
+        <section className="banner-section-two" id="home-banner" style={ bannerData.heroImage !== null ? {"backgroundImage":"url("+bannerData.heroImage.sourceUrl+")"} : null } >
             <div className="auto-container">
                 <div className="row clearfix">
                     <div className="content-column col-lg-6 col-md-12 col-sm-12">
                         <div className="inner-column">
-                            <h1>A Digital Agency All <br /> About Performance</h1>
-                            <div className="text">We work with power brands owned by leading global</div>
-                            <a href="https://www.youtube.com/watch?v=kxPCFljwJws" className="lightbox-image theme-btn btn-style-one">Watch Video <span className="icon fa fa-arrow-right"></span></a>
+                            <h1>{bannerData.heroTitle}</h1>
+                            <div className="text">{bannerData.heroSubTitle}</div>
+                            <Link to={bannerData.heroButtonUrl} className="lightbox-image theme-btn btn-style-one">{bannerData.heroButtonText} <span className="icon fa fa-arrow-right"></span></Link>
                         </div>
                     </div>
-                    <div className="image-column col-lg-6 col-md-12 col-sm-12">
-                        <div className="inner-column">
-                            <figure >
-                                <img src={img2} alt="" />
-                            </figure>
+                    {
+                        bannerData.heroImageOverlay == null || bannerData.heroImageOverlay == undefined || bannerData.heroImageOverlay == ""
+                        ?
+                        ''
+                        :
+                        <div className="image-column col-lg-6 col-md-12 col-sm-12">
+                            <div className="inner-column">
+                                <figure >
+                                    <img src={bannerData.heroImageOverlay.sourceUrl} alt="" />
+                                </figure>
+                            </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
         </section>
