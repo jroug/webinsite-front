@@ -2,6 +2,7 @@ const homePage_SLUG = "homepage";
 const aboutPage_SLUG = "about";
 const sectionOurServices_SLUG = "sectionourservices";
 const sectionWhyUs_SLUG = "sectionwhyus";
+const sectionAboutUs_SLUG = "sectionaboutus";
 
 // when appolo sends to backend it adds __typename field to help with cache
 // so when adding allowed queris on backend need to add that query
@@ -38,6 +39,23 @@ const GraphQLQueries = {
                 ... on Component {
                   title
                 }
+              }
+            }
+        }`,
+        sectionAboutUs:`sectionAboutUs: component( id: "${sectionAboutUs_SLUG}", idType: URI ) {
+            id
+            title
+            sectionAboutUsFields{
+              smallTitleTop
+              mainTitle
+              mainText
+              personName
+              personTitle
+              personImage{
+                sourceUrl
+              }
+              mainImage{
+                sourceUrl
               }
             }
         }`,

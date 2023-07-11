@@ -3,12 +3,44 @@ import React from 'react';
 import i1 from '../assets/images/icons/icon-1.png';
 import i2 from '../assets/images/icons/icon-2.png';
 import i4 from '../assets/images/icons/icon-4.png';
-import signature from '../assets/images/icons/signature.png';
-import author1 from '../assets/images/resource/author-1.png';
-import about1 from '../assets/images/resource/about-1.png';
+// import signature from '../assets/images/icons/signature.png';
+// import author1 from '../assets/images/resource/author-1.png';
+// import about1 from '../assets/images/resource/about-1.png';
+
+import { useQuery, gql } from '@apollo/client';
+
+import GraphQLQueries from "./queries/GraphQLQueries";
+import { logVar } from "./utils/Utils";
 
 
 const SectioAboutUs = () => {
+
+    const ABOUTUS_CONTENT = gql`query ABOUTUS_CONTENT
+    {
+      ${GraphQLQueries.queries.sectionAboutUs}
+    }`;
+
+    const { data, loading, error } = useQuery(ABOUTUS_CONTENT);
+
+    if (loading) { logVar('loading From SectionAboutUs'); return }
+    if (error) { logVar('error From SectionAboutUs'); return }
+    if (!data) { logVar('!data From SectionAboutUs'); return }
+
+    const sectionAboutUsData = data.sectionAboutUs.sectionAboutUsFields;
+
+    // logVar(sectionAboutUsData);
+    // smallTitleTop
+    // mainTitle
+    // mainText
+    // personName
+    // personTitle
+    // personImage{
+    //   sourceUrl
+    // }
+    // mainImage{
+    //   sourceUrl
+    // }
+
     return (
         <section className="about-section style-two">
             <div className="section-icons">
@@ -26,28 +58,28 @@ const SectioAboutUs = () => {
                         <div className="inner-column">
                             {/* <!-- Sec Title --> */}
                             <div className="sec-title">
-                                <div className="title">About the Agency</div>
+                                <div className="title">{sectionAboutUsData.smallTitleTop}</div>
                                 <div className="separator"><span></span></div>
-                                <h2>Insights and Resources to <br/> help drive your Business <br/> Forward Faster.</h2>
+                                <h2>{sectionAboutUsData.mainTitle}</h2>
                             </div>
-                            <div className="text">we build results-oriented brand strategies and continually refine your canpaigns for the greatest outcome. from full-scale digital marketing and advertising strategy, right through to our precise execution and reporting that’s right,we’ve got you covered</div>
+                            <div className="text">{sectionAboutUsData.mainText}</div>
                             {/* <!-- Author Box --> */}
                             <div className="author-box">
                                 <div className="box-inner">
-                                    <div className="image"><img src={author1} alt="" /></div>
-                                    <h3>Dntuli Frek</h3>
-                                    <div className="designation">Founden &amp; CEO</div>
+                                    <div className="image"><img src={sectionAboutUsData.personImage.sourceUrl} alt="" /></div>
+                                    <h3>{sectionAboutUsData.personName}</h3>
+                                    <div className="designation">{sectionAboutUsData.personTitle}</div>
                                 </div>
                             </div>
-                            <div className="signature"><img src={signature} alt="" /></div>
+                            {/* <div className="signature"><img src={signature} alt="" /></div> */}
                         </div>
                     </div>
 
                     {/* <!-- Image Column --> */}
                     <div className="image-column col-lg-6 col-md-12 col-sm-12">
-                        <div className="inner-column wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animation-duration":"1500ms;","animation-delay":"0ms;","animationName":"fadeInRight;"}}>
+                        <div className="inner-column wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"0ms","animationName":"fadeInRight"}}>
                             <div className="image">
-                                <img src={about1} alt="" />
+                                <img src={sectionAboutUsData.mainImage.sourceUrl} alt="" />
                             </div>
                         </div>
                     </div>
