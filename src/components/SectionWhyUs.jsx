@@ -1,10 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import i1 from '../assets/images/icons/icon-1.png';
 import i2 from '../assets/images/icons/icon-2.png';
 import p5 from '../assets/images/background/pattern-5.png';
 
+import { useQuery, gql } from '@apollo/client';
+
+import GraphQLQueries from "./queries/GraphQLQueries";
+import { logVar } from "./utils/Utils";
+
 const SectionWhyUs = () => {
+
+    const WHYUS_CONTENT = gql`query WHYUS_CONTENT
+    {
+      ${GraphQLQueries.queries.sectionWhyUs}
+    }`;
+
+    const { data, loading, error } = useQuery(WHYUS_CONTENT);
+
+    if (loading) { logVar('loading From SectionWhyUs'); return }
+    if (error) { logVar('error From SectionWhyUs'); return }
+    if (!data) { logVar('!data From SectionWhyUs'); return }
+
+    const sectionWhyUsData = data.sectionWhyUs.sectionWhyUsFields;
+
+    const featuresArr = data.sectionWhyUs.sectionWhyUsFields.features.split(/\r?\n/);
+// console.log(featuresArr);
+
     return (
         <section className="choose-section">
                 {/* Section Icons */}
@@ -22,18 +45,22 @@ const SectionWhyUs = () => {
                         <div className="inner-column">
                             {/* Sec Title */}
                             <div className="sec-title">
-                                <div className="title">Whu Choose Us</div>
+                                <div className="title">{sectionWhyUsData.smallTitleTop}</div>
                                 <div className="separator"><span></span></div>
-                                <h2>Get Benifits and <br /> Advantages Market Goal</h2>
+                                <h2 dangerouslySetInnerHTML={{__html:sectionWhyUsData.mainTitle}}></h2>
                             </div>
-                            <div className="bold-text">A Satisfied Customer is best for business</div>
-                            <div className="text">The activity of buying or selling goods and services in all the countries of the world.</div>
+                            <div className="bold-text">{sectionWhyUsData.mainSubTitle}</div>
+                            <div className="text">{sectionWhyUsData.featuredTitle}</div>
                             <ul className="list-style-two">
-                                <li>What is global market economy?</li>
-                                <li>Why is the global market so important?</li>
-                                <li>Which is the largest stock market in the world?</li>
+                                {
+                                    featuresArr.map((feature, index) => {
+                                        return (
+                                            <li key={index}>{feature}</li>
+                                        )
+                                    })
+                                }
                             </ul>
-                            <a href="#" className="theme-btn btn-style-two"><span className="txt">Free Consultation</span></a>
+                            <Link to={sectionWhyUsData.featuresButtonLink==null ? '#' : sectionWhyUsData.featuresButtonLink} className="theme-btn btn-style-two"><span className="txt">{sectionWhyUsData.featuresButtonText}</span></Link>
                         </div>
                     </div>
 
@@ -48,10 +75,10 @@ const SectionWhyUs = () => {
                                     <div className="inner-box wow fadeInRight animated" data-wow-delay="0ms" data-wow-duration="1500ms" >
                                         <div className="content">
                                             <div className="icon-box">
-                                                <span className="icon flaticon-dollar-symbol"></span>
+                                                <span className={"icon " + sectionWhyUsData.box1.boxIconClass}></span>
                                             </div>
-                                            <h3>Offerdable Price</h3>
-                                            <div className="text">Lorem ipsum dolor sit amet, consectetur, sed do eiusmod incididunt aliqua.</div>
+                                            <h3>{sectionWhyUsData.box1.boxTitle}</h3>
+                                            <div className="text">{sectionWhyUsData.box1.boxText}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -61,10 +88,10 @@ const SectionWhyUs = () => {
                                     <div className="inner-box wow fadeInRight animated" data-wow-delay="300ms" data-wow-duration="1500ms"  >
                                         <div className="content">
                                             <div className="icon-box">
-                                                <span className="icon flaticon-music-headphones"></span>
+                                                <span className={"icon " + sectionWhyUsData.box2.boxIconClass}></span>
                                             </div>
-                                            <h3>Greate Support</h3>
-                                            <div className="text">Lorem ipsum dolor sit amet, consectetur, sed do eiusmod incididunt aliqua.</div>
+                                            <h3>{sectionWhyUsData.box2.boxTitle}</h3>
+                                            <div className="text">{sectionWhyUsData.box2.boxText}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,10 +101,10 @@ const SectionWhyUs = () => {
                                     <div className="inner-box wow fadeInRight animated" data-wow-delay="600ms" data-wow-duration="1500ms" >
                                         <div className="content">
                                             <div className="icon-box">
-                                                <span className="icon flaticon-lock"></span>
+                                                <span className={"icon " + sectionWhyUsData.box3.boxIconClass}></span>
                                             </div>
-                                            <h3>Quick Access</h3>
-                                            <div className="text">Lorem ipsum dolor sit amet, consectetur, sed do eiusmod incididunt aliqua.</div>
+                                            <h3>{sectionWhyUsData.box3.boxTitle}</h3>
+                                            <div className="text">{sectionWhyUsData.box3.boxText}</div>
                                         </div>
                                     </div>
                                 </div>

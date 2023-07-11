@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import p4 from '../assets/images/background/pattern-4.png';
 import i1 from '../assets/images/icons/icon-1.png';
@@ -19,13 +20,11 @@ const SectionOurServices = () => {
 
     const { data, loading, error } = useQuery(SERVICES_CONTENT);
 
-
     if (loading) { logVar('loading From SectionOurServices'); return }
     if (error) { logVar('error From SectionOurServices'); return }
     if (!data) { logVar('!data From SectionOurServices'); return }
 
     const sectionOurServicesData = data.sectionOurServices.sectionOurServicesFields;
- 
 
     return (
         <section className="services-section-two">
@@ -44,7 +43,7 @@ const SectionOurServices = () => {
                 <div className="sec-title">
                     <div className="title">{sectionOurServicesData.smallTitleTop}</div>
                     <div className="separator"><span></span></div>
-                    <h2>{sectionOurServicesData.mainTitle}</h2>
+                    <h2 dangerouslySetInnerHTML={{__html: sectionOurServicesData.mainTitle.replace(/(?:\r\n|\r|\n)/g, '<br />')}}></h2>
                 </div>
                 <div className="inner-container">
                     <div className="row clearfix">
@@ -58,7 +57,7 @@ const SectionOurServices = () => {
                                 <div className="icon-box">
                                     <span className={"icon " + sectionOurServicesData.box1.boxIconClass}></span>
                                 </div>
-                                <h3><a href="services.html">{sectionOurServicesData.box1.boxTitle}</a></h3>
+                                <h3><Link to={sectionOurServicesData.box1.boxLink==null ? '#' : sectionOurServicesData.box1.boxLink} >{sectionOurServicesData.box1.boxTitle}</Link></h3>
                                 <div className="text">{sectionOurServicesData.box1.boxText}</div>
                             </div>
                         </div>
@@ -70,10 +69,10 @@ const SectionOurServices = () => {
                                 <div className="shape-two"></div>
                                 <div className="shape-three"></div>
                                 <div className="icon-box">
-                                    <span className="icon flaticon-profits"></span>
+                                    <span className={"icon " + sectionOurServicesData.box2.boxIconClass}></span>
                                 </div>
-                                <h3><a href="services.html">Strategy &amp; Planning</a></h3>
-                                <div className="text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</div>
+                                <h3><Link to={sectionOurServicesData.box2.boxLink==null ? '#' : sectionOurServicesData.box2.boxLink}>Strategy &amp; Planning</Link></h3>
+                                <div className="text">{sectionOurServicesData.box2.boxText}</div>
                             </div>
                         </div>
 
@@ -84,10 +83,10 @@ const SectionOurServices = () => {
                                 <div className="shape-two"></div>
                                 <div className="shape-three"></div>
                                 <div className="icon-box">
-                                    <span className="icon flaticon-data"></span>
+                                    <span className={"icon " + sectionOurServicesData.box3.boxIconClass}></span>
                                 </div>
-                                <h3><a href="services.html">Marketing Research</a></h3>
-                                <div className="text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</div>
+                                <h3><Link to={sectionOurServicesData.box3.boxLink==null ? '#' : sectionOurServicesData.box3.boxLink}>Marketing Research</Link></h3>
+                                <div className="text">{sectionOurServicesData.box3.boxText}</div>
                             </div>
                         </div>
 
@@ -98,10 +97,10 @@ const SectionOurServices = () => {
                                 <div className="shape-two"></div>
                                 <div className="shape-three"></div>
                                 <div className="icon-box">
-                                    <span className="icon flaticon-shopping-cart-3"></span>
+                                    <span className={"icon " + sectionOurServicesData.box4.boxIconClass}></span>
                                 </div>
-                                <h3><a href="services.html">Growth Tracking</a></h3>
-                                <div className="text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</div>
+                                <h3><Link to={sectionOurServicesData.box4.boxLink==null ? '#' : sectionOurServicesData.box4.boxLink}>Growth Tracking</Link></h3>
+                                <div className="text">{sectionOurServicesData.box4.boxText}</div>
                             </div>
                         </div>
 
@@ -112,10 +111,10 @@ const SectionOurServices = () => {
                                 <div className="shape-two"></div>
                                 <div className="shape-three"></div>
                                 <div className="icon-box">
-                                    <span className="icon flaticon-stats"></span>
+                                    <span className={"icon " + sectionOurServicesData.box5.boxIconClass}></span>
                                 </div>
-                                <h3><a href="services.html">Enterprise Consulting</a></h3>
-                                <div className="text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non.</div>
+                                <h3><Link to={sectionOurServicesData.box5.boxLink==null ? '#' : sectionOurServicesData.box5.boxLink}>Enterprise Consulting</Link></h3>
+                                <div className="text">{sectionOurServicesData.box5.boxText}</div>
                             </div>
                         </div>
                     </div>

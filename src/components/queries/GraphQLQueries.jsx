@@ -1,6 +1,7 @@
 const homePage_SLUG = "homepage";
+const aboutPage_SLUG = "about";
 const sectionOurServices_SLUG = "sectionourservices";
-
+const sectionWhyUs_SLUG = "sectionwhyus";
 
 // when appolo sends to backend it adds __typename field to help with cache
 // so when adding allowed queris on backend need to add that query
@@ -19,11 +20,25 @@ const GraphQLQueries = {
                 heroSubTitle
                 heroButtonText
                 heroButtonUrl
-                componentsSections {
-                    ... on Component {
-                      title
-                    }
+            }
+            componentsSectionsAllPages{
+              componentsSections {
+                ... on Component {
+                  title
                 }
+              }
+            }
+        }`,
+        aboutPage:`aboutPage: page( id: "${aboutPage_SLUG}", idType: URI ) {
+            id
+            title
+            content
+            componentsSectionsAllPages{
+              componentsSections {
+                ... on Component {
+                  title
+                }
+              }
             }
         }`,
         sectionOurServices:`sectionOurServices: component( id: "${sectionOurServices_SLUG}", idType: URI ) {
@@ -36,30 +51,64 @@ const GraphQLQueries = {
                 boxIconClass
                 boxTitle
                 boxText
+                boxLink
               }
               box2 {
                 boxIconClass
                 boxTitle
                 boxText
+                boxLink
               }
               box3 {
                 boxIconClass
                 boxTitle
                 boxText
+                boxLink
               }
               box4 {
                 boxIconClass
                 boxTitle
                 boxText
+                boxLink
               }
               box5 {
                 boxIconClass
                 boxTitle
                 boxText
+                boxLink
               }
             }
         }
         `,
+        sectionWhyUs:`sectionWhyUs: component( id: "${sectionWhyUs_SLUG}", idType: URI ) {
+          id
+          title
+          sectionWhyUsFields{
+            smallTitleTop
+            mainTitle
+            mainSubTitle
+            featuresTitle
+            features
+            featuresButtonText
+            featuresButtonLink
+            box1 {
+              boxIconClass
+              boxTitle
+              boxText
+            }
+            box2 {
+              boxIconClass
+              boxTitle
+              boxText
+            }
+            box3 {
+              boxIconClass
+              boxTitle
+              boxText
+            }
+          }
+      }
+      `,
     }
 };
 export default GraphQLQueries;

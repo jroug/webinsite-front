@@ -9,10 +9,18 @@ import { _BannerHome } from "./";
 
 const PageHome = () => {
 
+
     const HOMEPAGE_CONTENT = gql`query HOMEPAGE_CONTENT
     {
       ${GraphQLQueries.queries.homePage}
     }`;
+
+    // const HOMEPAGE_CONTENT = gql`query HOMEPAGE_CONTENT
+    // {
+    //   ${GraphQLQueries.queries.homePage}
+    //   ${GraphQLQueries.queries.sectionOurServices}
+    //   ${GraphQLQueries.queries.sectionWhyUs}
+    // }`;
 
     const { data, loading, error } = useQuery(HOMEPAGE_CONTENT);
 
@@ -21,7 +29,7 @@ const PageHome = () => {
     if (!data) { logVar('!data From Page_Home'); return }
 
     const homepageData = data.homePage.homepageFields;
-    const componentsData = homepageData.componentsSections;
+    const componentsData = data.homePage.componentsSectionsAllPages.componentsSections;
 
     // const SectionOurServices = lazy ( () => import('./SectionOurServices') );
     // const SectionWhyUs = lazy ( () => import('./SectionWhyUs') );
