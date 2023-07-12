@@ -6,22 +6,23 @@ import _BannerTopElements from "./_BannerTopElements";
 import _Footer from "./_Footer";
 
 import PageHome from "./PageHome";
-import PageAbout from "./PageAbout";
-import PageServices from "./PageServices";
+// import PageAbout from "./PageAbout";
+// import PageServices from "./PageServices";
 import PagePortfolio from "./PagePortfolio";
 import PageContact from "./PageContact";
-import PageFaq from "./PageFaq";
-import PageTestimonials from "./PageTestimonials";
+// import PageFaq from "./PageFaq";
+// import PageTestimonials from "./PageTestimonials";
 
 import TemplatePortfolioInner from "./TemplatePortfolioInner";
 import TemplateServiceInner from "./TemplateServiceInner";
 import TemplateBlogInner from "./TemplateBlogInner";
+import TemplatePage from "./TemplatePage";
 
 import SectionOurServices from "./SectionOurServices";
-import SectionWhyUs from "./SectionWhyUs";
+// import SectionWhyUs from "./SectionWhyUs";
 import SectionSubscribeToNL from "./SectionSubscribeToNL";
-import SectionAboutUs from "./SectionAboutUs";
-import SectionTestimonials from "./SectionTestimonials";
+// import SectionAboutUs from "./SectionAboutUs";
+// import SectionTestimonials from "./SectionTestimonials";
 import PageBlog from "./PageBlog";
 
 
@@ -34,22 +35,23 @@ export {
     _Footer,
 
     PageHome,
-    PageAbout,
-    PageServices,
+    // PageAbout,
+    // PageServices,
     PagePortfolio,
     PageContact,
-    PageFaq,
-    PageTestimonials,
+    // PageFaq,
+    // PageTestimonials,
     PageBlog,
     
 
     TemplatePortfolioInner,
     TemplateServiceInner,
     TemplateBlogInner,
+    TemplatePage,
 
     SectionOurServices,
-    SectionWhyUs,
+    // SectionWhyUs,
     SectionSubscribeToNL,
-    SectionAboutUs,
-    SectionTestimonials
+    // SectionAboutUs,
+    // SectionTestimonials
 }

@@ -2,7 +2,7 @@
 import React, { Suspense, lazy } from "react";
 import { useQuery, gql } from '@apollo/client';
 
-import GraphQLQueries from "./queries/GraphQLQueries";
+import {GraphQLQueries} from "./queries/GraphQLQueries";
 import { logVar } from "./utils/Utils";
 
 import { _BannerHome } from "./";
@@ -34,23 +34,25 @@ const PageHome = () => {
     // const SectionOurServices = lazy ( () => import('./SectionOurServices') );
     // const SectionWhyUs = lazy ( () => import('./SectionWhyUs') );
     
-    let componentArray = [];
+    var componentArray = [];
     let idx = 0;
-
+    
     componentsData.forEach( (element) => {
         componentArray[idx++] = lazy ( () => import( './' + element.title.replaceAll(" ", "") ) );
     });
 
     // logVar(componentArray);
-
+    // const SectionOurServices = lazy ( () => import('./SectionOurServices') );
+    
+ 
+    
     return (
        <>
         <_BannerHome homeHeaderData = { homepageData } />
+       
         <Suspense fallback={<div>Loading...</div>}>
            {
-                componentArray.map( (Component, index) => {
-                    return <Component key={index} />
-                })
+                componentArray.map( (Component, index) => ( <Component key={index} />) )
            }
         </Suspense>
        </>

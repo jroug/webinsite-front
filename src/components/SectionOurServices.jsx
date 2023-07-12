@@ -8,17 +8,17 @@ import i4 from '../assets/images/icons/icon-4.png';
 
 import { useQuery, gql } from '@apollo/client';
 
-import GraphQLQueries from "./queries/GraphQLQueries";
+import {GraphQLQueries} from "./queries/GraphQLQueries";
 import { logVar } from "./utils/Utils";
 
 const SectionOurServices = () => {
-
-    const SERVICES_CONTENT = gql`query SERVICES_CONTENT
+ 
+    const SERVICES_SECTION_CONTENT = gql`query SERVICES_SECTION_CONTENT
     {
       ${GraphQLQueries.queries.sectionOurServices}
     }`;
 
-    const { data, loading, error } = useQuery(SERVICES_CONTENT);
+    const { data, loading, error } = useQuery(SERVICES_SECTION_CONTENT);
 
     if (loading) { logVar('loading From SectionOurServices'); return }
     if (error) { logVar('error From SectionOurServices'); return }

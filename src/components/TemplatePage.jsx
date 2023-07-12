@@ -3,24 +3,27 @@ import React, { Suspense, lazy } from 'react';
 import { _BannerTop } from ".";
 
 import { useQuery, gql } from '@apollo/client';
-import GraphQLQueries from "./queries/GraphQLQueries";
+import {GraphQLQueries, getGenericPageQuery} from "./queries/GraphQLQueries";
 import { logVar } from "./utils/Utils";
 
-const PageTestimonials = (props) => {
+const TemplatePage = (props) => {
+    
+ 
+    const pageSlug = props.pageSlug;
 
-    const TESTIMONIALS_CONTENT = gql`query TESTIMONIALS_CONTENT
+    const PAGE_CONTENT = gql`query PAGE_CONTENT
     {
-      ${GraphQLQueries.queries.testimonialsPage}
+      ${ getGenericPageQuery(pageSlug) }
     }`;
 
-    const { data, loading, error } = useQuery(TESTIMONIALS_CONTENT);
+    const { data, loading, error } = useQuery(PAGE_CONTENT);
 
-    if (loading) { logVar('loading From Page_Testimonials'); return }
-    if (error) { logVar('error From Page_Testimonials'); return }
-    if (!data) { logVar('!data From Page_Testimonials'); return }
+    if (loading) { logVar('loading From ' + pageSlug + ' Page' ); return }
+    if (error) { logVar('error From ' + pageSlug + ' Page' ); return }
+    if (!data) { logVar('!data From ' + pageSlug + ' Page' ); return }
 
-    const pageTitle = data.testimonialsPage.title;
-    const componentsData = data.testimonialsPage.componentsSectionsAllPages.componentsSections;
+    const pageTitle = data.genericPage.title;
+    const componentsData = data.genericPage.componentsSectionsAllPages.componentsSections;
     
     let componentArray = [];
     let idx = 0;
@@ -28,6 +31,8 @@ const PageTestimonials = (props) => {
     componentsData.forEach( (element) => {
         componentArray[idx++] = lazy ( () => import( './' + element.title.replaceAll(" ", "") ) );
     });
+
+    // logVar(componentsData);
 
     return (
         <>
@@ -43,4 +48,4 @@ const PageTestimonials = (props) => {
     );
 };
 
-export default PageTestimonials;
+export default TemplatePage;

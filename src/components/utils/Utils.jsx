@@ -7,6 +7,7 @@ const preloadImage = (image) => {
 }
 
 const logVar = (txt) => {
+    console.log(txt);
     if(process.env.NODE_ENV=="development"){
         console.log(txt);
     }

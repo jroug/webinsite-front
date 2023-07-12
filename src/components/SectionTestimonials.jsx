@@ -1,16 +1,16 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
-import GraphQLQueries from "./queries/GraphQLQueries";
+import {GraphQLQueries} from "./queries/GraphQLQueries";
 import { logVar } from "./utils/Utils";
 
 const SectionTestimonials = () => {
 
-    const SECTION_TESTIMONIALS_CONTENT = gql`query SECTION_TESTIMONIALS_CONTENT
+    const TESTIMONIALS_SECTION_CONTENT = gql`query TESTIMONIALS_SECTION_CONTENT
     {
       ${GraphQLQueries.queries.sectionTestimonials}
     }`;
 
-    const { data, loading, error } = useQuery(SECTION_TESTIMONIALS_CONTENT);
+    const { data, loading, error } = useQuery(TESTIMONIALS_SECTION_CONTENT);
 
     if (loading) { logVar('loading From SectionTestimonials'); return }
     if (error) { logVar('error From SectionTestimonials'); return }

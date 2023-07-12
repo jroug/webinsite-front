@@ -5,25 +5,25 @@ import subscribe from '../assets/images/resource/subscribe.png';
 
 import { useQuery, gql } from '@apollo/client';
 
-import GraphQLQueries from "./queries/GraphQLQueries";
+import {GraphQLQueries} from "./queries/GraphQLQueries";
 import { logVar } from "./utils/Utils";
 
 
 const SectionSubscribeToNL = () => {
 
-    const SUBNL_CONTENT = gql`query SUBNL_CONTENT
+    const SUBNL_SECTION_CONTENT = gql`query SUBNL_SECTION_CONTENT
     {
       ${GraphQLQueries.queries.sectionSubscribeToNL}
     }`;
 
-    const { data, loading, error } = useQuery(SUBNL_CONTENT);
+    const { data, loading, error } = useQuery(SUBNL_SECTION_CONTENT);
 
     if (loading) { logVar('loading From SectionSubscribeToNL'); return }
     if (error) { logVar('error From SectionSubscribeToNL'); return }
     if (!data) { logVar('!data From SectionSubscribeToNL'); return }
 
     const sectionSubscribeToNLData = data.sectionSubscribeToNL.sectionSubscribeToNLFields;
-
+console.log(sectionSubscribeToNLData);
 
     return (
         <section className="subscribe-section">

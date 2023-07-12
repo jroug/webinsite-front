@@ -1,18 +1,35 @@
 const homePage_SLUG = "homepage";
-const aboutPage_SLUG = "about";
-const servicesPage_SLUG = "services";
-const testimonialsPage_SLUG = "testimonials";
-
+// const aboutPage_SLUG = "about";
+// const servicesPage_SLUG = "services";
+// const testimonialsPage_SLUG = "testimonials";
+// const faqPage_SLUG = "faq";
 
 const sectionOurServices_SLUG = "sectionourservices";
 const sectionWhyUs_SLUG = "sectionwhyus";
 const sectionAboutUs_SLUG = "sectionaboutus";
 const sectionSubscribeToNL_SLUG = "sectionsubscribetonl";
 const sectionTestimonials_SLUG = "sectiontestimonials";
-
+const sectionFAQ_SLUG = "sectionfaq";
 // when appolo sends to backend it adds __typename field to help with cache
 // so when adding allowed queris on backend need to add that query
 // you can find it in the ajax request header
+
+
+const getGenericPageQuery = (genericPage_SLUG) => {
+  return `genericPage: page( id: "${genericPage_SLUG}", idType: URI ) {
+      id
+      title
+      content
+      componentsSectionsAllPages{
+        componentsSections {
+          ... on Component {
+            title
+          }
+        }
+      }
+  }`;
+}
+
 
 const GraphQLQueries = {
     queries : {
@@ -36,42 +53,56 @@ const GraphQLQueries = {
               }
             }
         }`,
-        aboutPage:`aboutPage: page( id: "${aboutPage_SLUG}", idType: URI ) {
-            id
-            title
-            content
-            componentsSectionsAllPages{
-              componentsSections {
-                ... on Component {
-                  title
-                }
-              }
-            }
-        }`,
-        testimonialsPage:`testimonialsPage: page( id: "${testimonialsPage_SLUG}", idType: URI ) {
-            id
-            title
-            content
-            componentsSectionsAllPages{
-              componentsSections {
-                ... on Component {
-                  title
-                }
-              }
-            }
-        }`,
-        servicesPage:`servicesPage: page( id: "${servicesPage_SLUG}", idType: URI ) {
-            id
-            title
-            content
-            componentsSectionsAllPages{
-              componentsSections {
-                ... on Component {
-                  title
-                }
-              }
-            }
-        }`,
+        // aboutPage:`aboutPage: page( id: "${aboutPage_SLUG}", idType: URI ) {
+        //     id
+        //     title
+        //     content
+        //     componentsSectionsAllPages{
+        //       componentsSections {
+        //         ... on Component {
+        //           title
+        //         }
+        //       }
+        //     }
+        // }`,
+        // testimonialsPage:`testimonialsPage: page( id: "${testimonialsPage_SLUG}", idType: URI ) {
+        //     id
+        //     title
+        //     content
+        //     componentsSectionsAllPages{
+        //       componentsSections {
+        //         ... on Component {
+        //           title
+        //         }
+        //       }
+        //     }
+        // }`,
+        // servicesPage:`servicesPage: page( id: "${servicesPage_SLUG}", idType: URI ) {
+        //     id
+        //     title
+        //     content
+        //     componentsSectionsAllPages{
+        //       componentsSections {
+        //         ... on Component {
+        //           title
+        //         }
+        //       }
+        //     }
+        // }`,
+        // faqPage:`faqPage: page( id: "${faqPage_SLUG}", idType: URI ) {
+        //     id
+        //     title
+        //     content
+        //     componentsSectionsAllPages{
+        //       componentsSections {
+        //         ... on Component {
+        //           title
+        //         }
+        //       }
+        //     }
+        // }`,
+
+
         sectionAboutUs:`sectionAboutUs: component( id: "${sectionAboutUs_SLUG}", idType: URI ) {
             id
             title
@@ -191,6 +222,34 @@ const GraphQLQueries = {
         }
       }
       `,
+      sectionFAQ:`sectionFAQ: component( id: "${sectionFAQ_SLUG}", idType: URI ) {
+        id
+        title
+        sectionFaqFields{
+          smallTitleTop
+          mainTitle
+          mainText
+          buttonLink
+          buttonText
+          faqCases{
+            ... on FAQ {
+              id
+              title
+              content
+            }
+          }
+        }
+      }
+      `,
     }
 };
-export default GraphQLQueries;
+
+
+
+ 
+
+
+export {
+    GraphQLQueries,
+    getGenericPageQuery
+} 

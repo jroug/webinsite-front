@@ -1,133 +1,93 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery, gql } from '@apollo/client';
+
+import {GraphQLQueries} from "./queries/GraphQLQueries";
+import { logVar } from "./utils/Utils";
+
 
 const SectionFAQ = () => {
+
+    const handleAccBtn = (el) => {
+        let that = el.currentTarget;
+        if(!that.classList.contains('active')){
+            document.querySelector("#accordion-box").querySelectorAll('.acc-btn').forEach((el2) => {
+                el2.classList.remove('active');
+                el2.nextElementSibling.classList.remove('current');
+            });
+            that.classList.add('active');
+            that.nextElementSibling.classList.add('current');
+        }else{
+            that.classList.remove('active');
+            that.nextElementSibling.classList.remove('current');
+        }
+    }
+
+    const FAQ_SECTION_CONTENT = gql`query FAQ_SECTION_CONTENT
+    {
+      ${GraphQLQueries.queries.sectionFAQ}
+    }`;
+
+    const { data, loading, error } = useQuery(FAQ_SECTION_CONTENT);
+
+    if (loading) { logVar('loading From SectionFAQ'); return }
+    if (error) { logVar('error From SectionFAQ'); return }
+    if (!data) { logVar('!data From SectionFAQ'); return }
+
+    const sectionFaqData = data.sectionFAQ.sectionFaqFields;
+    const faqCases = sectionFaqData.faqCases;
+    // logVar(faqCases);
+
+
     return (
         <section className="faq-page-section">
             <div className="auto-container">
                 <div className="row clearfix">
-
                     {/* <!-- Title Column --> */}
                     <div className="title-column col-lg-5 col-sm-12 col-xs-12">
                         <div className="inner-column">
                             {/* <!-- Sec Title --> */}
                             <div className="sec-title">
-                                <div className="title">Frequenty Asked Question</div>
+                                <div className="title">{sectionFaqData.smallTitleTop}</div>
                                 <div className="separator"><span></span></div>
-                                <h2>Got Any Questions?</h2>
+                                <h2>{sectionFaqData.mainTitle}</h2>
                             </div>
-                            <div className="text">Veniam quis nostrud exercitation ullamco laboris nist aute irure dolor in reprehenderit in voluptate velit esse nulla pariatur excepteur sint occaecat aboris nisi ut aliquip ex ea consequat uis aute.</div>
-                            <a href="#" className="theme-btn btn-style-two"><span className="txt">Get More Help</span></a>
+                            <div className="text">{sectionFaqData.mainText}</div>
+                            <Link to={sectionFaqData.buttonLink} className="theme-btn btn-style-two"><span className="txt">{sectionFaqData.buttonText}</span></Link>
                         </div>
                     </div>
-
                     {/* <!-- Accordian Column --> */}
                     <div className="accordian-column col-lg-7 col-sm-12 col-xs-12">
                         <div className="inner-column">
 
                             {/* <!--Accordian Box--> */}
                             <ul id="accordion-box" className="accordion-box">
+                                {
+                                    faqCases.map( (faqCase, index) => {
 
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How to analyze marketing strategies?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                        let parser = new DOMParser();
 
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn active" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>What are latest updates and how to get it?</div>
-                                    <div className="acc-content current">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
+                                        let parsedDocument = parser.parseFromString(faqCase.content, "text/html");
+                                        let faq_text = parsedDocument.getElementsByTagName("p");
 
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How can I customize projects to add members?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
 
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>Why you respond so much late?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How can I customize projects to add members?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>How to analyze marketing strategies?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>What are latest updates and how to get it?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                {/* <!--Block--> */}
-                                <li className="accordion block">
-                                    <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>Why you respond so much late?</div>
-                                    <div className="acc-content">
-                                        <div className="content">
-                                            <div className="text">
-                                                <p>Nostrud exercitation ullamco laboris nisi ut aliquip aute irure dolor indy reprehenderit in voluptate velit esse cillum dole Veniam quis nul pariatur excepteur sint nulla ipsum occaecat.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
+                                        return (
+                                            <li className="accordion block" key={index}>
+                                                <div className="acc-btn" onClick={handleAccBtn} ><div className="icon-outer"><span className="icon icon-plus fa fa-plus"></span> <span className="icon icon-minus fa fa-minus"></span></div>{faqCase.title}</div>
+                                                <div className="acc-content">
+                                                    <div className="content">
+                                                        <div className="text">
+                                                            <p>{faq_text[0].innerText}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        )
+                                    })
+                                }
                             </ul>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

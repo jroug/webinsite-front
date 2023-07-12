@@ -7,17 +7,17 @@ import p5 from '../assets/images/background/pattern-5.png';
 
 import { useQuery, gql } from '@apollo/client';
 
-import GraphQLQueries from "./queries/GraphQLQueries";
+import {GraphQLQueries} from "./queries/GraphQLQueries";
 import { logVar } from "./utils/Utils";
 
 const SectionWhyUs = () => {
 
-    const WHYUS_CONTENT = gql`query WHYUS_CONTENT
+    const WHYUS_SECTION_CONTENT = gql`query WHYUS_SECTION_CONTENT
     {
       ${GraphQLQueries.queries.sectionWhyUs}
     }`;
 
-    const { data, loading, error } = useQuery(WHYUS_CONTENT);
+    const { data, loading, error } = useQuery(WHYUS_SECTION_CONTENT);
 
     if (loading) { logVar('loading From SectionWhyUs'); return }
     if (error) { logVar('error From SectionWhyUs'); return }

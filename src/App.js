@@ -5,15 +5,12 @@ import {
     _BannerHome, 
     _Footer,
     PageHome,
-    PageAbout,
-    PageServices,
     PagePortfolio,
     PageContact,
     TemplatePortfolioInner,
     TemplateServiceInner,
     TemplateBlogInner,
-    PageFaq,
-    PageTestimonials,
+    TemplatePage,
     PageBlog,
 } from "./components";
 
@@ -30,7 +27,7 @@ import './assets/css/main.css';
 import './assets/css/responsive.css';
 import './assets/css/custom.css';
 
-import GraphQLQueries from "./components/queries/GraphQLQueries";
+// import GraphQLQueries from "./components/queries/GraphQLQueries";
 import ToolEditPage from "./components/utils/ToolEditPage";
 
 const App = () => {
@@ -47,15 +44,18 @@ const App = () => {
             <Routes >
                 <Route>
                     <Route exact path="/" element={<PageHome />} title={""} />
-                    <Route key={"1"} path="/about" element={<PageAbout /* title={"Η Όμαδα μας"} */  />} />
-                        <Route key={"1a"} path="/testimonials" element={<PageTestimonials /* title={"Testimonials"} */ />} />
-                    <Route key={"2"} path="/services" element={<PageServices /* title={"Υπηρεσίες"} */ />} />
+
+                    <Route key={"1"} path="/about" element={<TemplatePage pageSlug={"about"} />} />
+                     <Route key={"1a"} path="/testimonials" element={<TemplatePage pageSlug={"testimonials"}  />} />
+                    <Route key={"2"} path="/services" element={<TemplatePage pageSlug={"services"} />} />
+                    <Route key={"6"} path="/faq" element={<TemplatePage pageSlug={"faq"}   />}   />
+
                         <Route key={"2a"} path="/service-inner" element={<TemplateServiceInner title={"Υπηρεσία"} />}   />
                     <Route key={"3"} path="/portfolio" element={<PagePortfolio title={"Ιστοσελίδες"} />}   />
                         <Route key={"3a"} path="/portfolio-inner" element={<TemplatePortfolioInner title={"Ιστοσελίδα"} />}   />
                     <Route key={"4"} path="/blog" element={<PageBlog title={"Blog"} />}   />
                         <Route key={"4a"} path="/blog-inner" element={<TemplateBlogInner title={"Post"} />}   />
-                    <Route key={"6"} path="/faq" element={<PageFaq title={"FAQ"} />}   />
+             
                     <Route key={"7"} path="/contact" element={<PageContact title={"Επικοινωνία"} />}   />
                 </Route>
             </Routes>
