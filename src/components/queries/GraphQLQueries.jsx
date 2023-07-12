@@ -1,8 +1,14 @@
 const homePage_SLUG = "homepage";
 const aboutPage_SLUG = "about";
+const servicesPage_SLUG = "services";
+const testimonialsPage_SLUG = "testimonials";
+
+
 const sectionOurServices_SLUG = "sectionourservices";
 const sectionWhyUs_SLUG = "sectionwhyus";
 const sectionAboutUs_SLUG = "sectionaboutus";
+const sectionSubscribeToNL_SLUG = "sectionsubscribetonl";
+const sectionTestimonials_SLUG = "sectiontestimonials";
 
 // when appolo sends to backend it adds __typename field to help with cache
 // so when adding allowed queris on backend need to add that query
@@ -31,6 +37,30 @@ const GraphQLQueries = {
             }
         }`,
         aboutPage:`aboutPage: page( id: "${aboutPage_SLUG}", idType: URI ) {
+            id
+            title
+            content
+            componentsSectionsAllPages{
+              componentsSections {
+                ... on Component {
+                  title
+                }
+              }
+            }
+        }`,
+        testimonialsPage:`testimonialsPage: page( id: "${testimonialsPage_SLUG}", idType: URI ) {
+            id
+            title
+            content
+            componentsSectionsAllPages{
+              componentsSections {
+                ... on Component {
+                  title
+                }
+              }
+            }
+        }`,
+        servicesPage:`servicesPage: page( id: "${servicesPage_SLUG}", idType: URI ) {
             id
             title
             content
@@ -125,6 +155,40 @@ const GraphQLQueries = {
               boxText
             }
           }
+      }
+      `,
+      sectionSubscribeToNL:`sectionSubscribeToNL: component( id: "${sectionSubscribeToNL_SLUG}", idType: URI ) {
+        id
+        title
+        sectionSubscribeToNLFields{
+          mainImage{
+            sourceUrl
+          }
+          mainTitle
+        }
+      }
+      `,
+      sectionTestimonials:`sectionTestimonials: component( id: "${sectionTestimonials_SLUG}", idType: URI ) {
+        id
+        title
+        sectionTestimonialsFields{
+          smallTitleTop
+          mainTitle
+          testimonialCases{
+            ... on Testimonial {
+              id
+              title
+              excerpt
+              content
+              featuredImage {
+                node {
+                  id
+                  sourceUrl
+                }
+              } 
+            }
+          }
+        }
       }
       `,
     }

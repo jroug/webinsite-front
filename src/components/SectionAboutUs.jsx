@@ -28,19 +28,6 @@ const SectioAboutUs = () => {
 
     const sectionAboutUsData = data.sectionAboutUs.sectionAboutUsFields;
 
-    // logVar(sectionAboutUsData);
-    // smallTitleTop
-    // mainTitle
-    // mainText
-    // personName
-    // personTitle
-    // personImage{
-    //   sourceUrl
-    // }
-    // mainImage{
-    //   sourceUrl
-    // }
-
     return (
         <section className="about-section style-two">
             <div className="section-icons">
