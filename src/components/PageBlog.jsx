@@ -15,7 +15,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"0ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"0ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -42,7 +42,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="250ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"250ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="250ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"250ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -69,7 +69,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"500ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"500ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -96,7 +96,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"0ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"0ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -123,7 +123,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="250ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"250ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="250ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"250ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -150,7 +150,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"500ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"500ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -177,7 +177,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"0ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"0ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -204,7 +204,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="250ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"250ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="250ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"250ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>
@@ -231,7 +231,7 @@ const PageBlog = (props) => {
 
                         { /* <!-- News Block --> */ }
                         <div className="news-block col-lg-4 col-md-6 col-sm-12">
-                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style={{"visibility":"visible;","animationDuration":"1500ms;","animationDelay":"500ms;","animationName":"fadeInLeft;"}}>
+                            <div className="inner-box wow fadeInLeft animated" data-wow-delay="500ms" data-wow-duration="1500ms" style={{"visibility":"visible","animationDuration":"1500ms","animationDelay":"500ms","animationName":"fadeInLeft"}}>
                                 <div className="image">
                                     <a href="blog-single.html"><img src={news1} alt="" /></a>
                                 </div>

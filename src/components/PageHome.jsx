@@ -45,16 +45,18 @@ const PageHome = () => {
     // const SectionOurServices = lazy ( () => import('./SectionOurServices') );
     
  
-    
+    console.log('home');
     return (
        <>
         <_BannerHome homeHeaderData = { homepageData } />
-       
-        <Suspense fallback={<div>Loading...</div>}>
            {
-                componentArray.map( (Component, index) => ( <Component key={index} />) )
+              componentArray.map( (Component, index) => ( 
+                <Suspense key={index} fallback={<div>Loading...</div>}>
+                  <Component  />
+                </Suspense>
+              ))
            }
-        </Suspense>
+        
        </>
     );
 }

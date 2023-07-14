@@ -23,7 +23,7 @@ const SectionSubscribeToNL = () => {
     if (!data) { logVar('!data From SectionSubscribeToNL'); return }
 
     const sectionSubscribeToNLData = data.sectionSubscribeToNL.sectionSubscribeToNLFields;
-console.log(sectionSubscribeToNLData);
+// console.log(sectionSubscribeToNLData);
 
     return (
         <section className="subscribe-section">

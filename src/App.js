@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { 
     _Header,
@@ -13,6 +13,8 @@ import {
     TemplatePage,
     PageBlog,
 } from "./components";
+import ToolEditPage from './components/utils/ToolEditPage';
+
 
 import './assets/css/bootstrap.css';
 import './assets/css/font-awesome.css';
@@ -27,8 +29,20 @@ import './assets/css/main.css';
 import './assets/css/responsive.css';
 import './assets/css/custom.css';
 
-// import GraphQLQueries from "./components/queries/GraphQLQueries";
-import ToolEditPage from "./components/utils/ToolEditPage";
+
+// const ToolEditPage = lazy(() => import('./components/utils/ToolEditPage'));
+
+// const PageHome = lazy(() => import('./components/PageHome'));
+// const PagePortfolio = lazy(() => import('./components/PagePortfolio'));
+// const PageContact = lazy(() => import('./components/PageContact'));
+// const TemplatePortfolioInner = lazy(() => import('./components/TemplatePortfolioInner'));
+// const TemplateServiceInner = lazy(() => import('./components/TemplateServiceInner'));
+// const TemplateBlogInner = lazy(() => import('./components/TemplateBlogInner'));
+// const TemplatePage = lazy(() => import('./components/TemplatePage'));
+// const PageBlog = lazy(() => import('./components/PageBlog'));
+
+
+
 
 const App = () => {
     return (
@@ -41,24 +55,28 @@ const App = () => {
                 :
                 <></>
             }
-            <Routes >
-                <Route>
-                    <Route exact path="/" element={<PageHome />} title={""} />
+            {/* <Suspense fallback={<span style={{fontSize:'40px'}}>Loading</span>} > */}
+                <Routes >
+                    <Route>
+                        <Route key={"0"} path="/" exact element={<PageHome />} />
 
-                    <Route key={"1"} path="/about" element={<TemplatePage pageSlug={"about"} />} />
-                     <Route key={"1a"} path="/testimonials" element={<TemplatePage pageSlug={"testimonials"}  />} />
-                    <Route key={"2"} path="/services" element={<TemplatePage pageSlug={"services"} />} />
-                    <Route key={"6"} path="/faq" element={<TemplatePage pageSlug={"faq"}   />}   />
-
-                        <Route key={"2a"} path="/service-inner" element={<TemplateServiceInner title={"Υπηρεσία"} />}   />
-                    <Route key={"3"} path="/portfolio" element={<PagePortfolio title={"Ιστοσελίδες"} />}   />
-                        <Route key={"3a"} path="/portfolio-inner" element={<TemplatePortfolioInner title={"Ιστοσελίδα"} />}   />
-                    <Route key={"4"} path="/blog" element={<PageBlog title={"Blog"} />}   />
-                        <Route key={"4a"} path="/blog-inner" element={<TemplateBlogInner title={"Post"} />}   />
-             
-                    <Route key={"7"} path="/contact" element={<PageContact title={"Επικοινωνία"} />}   />
-                </Route>
-            </Routes>
+                        {
+                            ["about", "testimonials", "services", "faq"].map((pageSlug, index) => {
+                                return (
+                                    <Route key={pageSlug} path={"/"+pageSlug} element={<TemplatePage pageSlug={pageSlug} />} />
+                                )
+                            })
+                        }
+              
+                            <Route key={"5"} path="/service-inner" element={<TemplateServiceInner title={"Υπηρεσία"} />}   />
+                        <Route key={"6"} path="/portfolio" element={<PagePortfolio title={"Ιστοσελίδες"} />}   />
+                            <Route key={"7"} path="/portfolio-inner" element={<TemplatePortfolioInner title={"Ιστοσελίδα"} />}   />
+                        <Route key={"8"} path="/blog" element={<PageBlog title={"Blog"} />}   />
+                            <Route key={"9"} path="/blog-inner" element={<TemplateBlogInner title={"Post"} />}   />
+                        <Route key={"10"} path="/contact" element={<PageContact title={"Επικοινωνία"} />}   />
+                    </Route>
+                </Routes>
+            {/* </Suspense> */}
             <_Footer />
         </BrowserRouter>
     );

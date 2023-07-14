@@ -1,5 +1,4 @@
 import React from 'react';
-import { logVar } from "./utils/Utils";
 import { Link } from 'react-router-dom';
 
 
